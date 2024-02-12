@@ -1,13 +1,17 @@
-import Header from "./Header";
 import { useEffect, useState } from "react";
 import { TOP_COINS_API } from "../utilities/constants";
 import crypto from "../assets/crypto.png";
 
-const Home = () => {
+const Hero = () => {
   const [currencyData, setCurrencyData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchData();
+    try {
+      fetchData();
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   const fetchData = async () => {
@@ -15,6 +19,7 @@ const Home = () => {
     const json = await data.json();
     console.log(json);
     setCurrencyData(json);
+    setLoading(false);
   };
 
   function numberWithCommas(x) {
@@ -23,7 +28,6 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
       <div className="pb-20 ">
         <div className="flex flex-row items-center justify-center">
           <div className="pl-20">
@@ -45,11 +49,15 @@ const Home = () => {
           <img src={crypto} className="w-2/5 mr-20" />
         </div>
         <div className="mt-32 mb-16 text-5xl text-center font-poppins font-bold">
-          <p className="bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text">
             Top 5 Crypto Currencies
-          </p>
+          </span>
         </div>
-        <div className="flex flex-wrap justify-evenly">
+        <div
+          className={`flex flex-wrap justify-evenly ${
+            loading === true ? "animate-spin" : ""
+          }`}
+        >
           {currencyData.map((item) => (
             <div
               key={item?.id}
@@ -82,4 +90,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Hero;

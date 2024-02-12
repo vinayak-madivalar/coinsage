@@ -1,6 +1,7 @@
 import logo from "../assets/logo.png";
 import { BsDiscord } from "react-icons/bs";
 import { FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,7 +11,9 @@ const Header = () => {
       </div>
       <div className="">
         <ul className="flex gap-12 text-xl font-semibold ">
-          <li className="">Home</li>
+          <li>
+            <Link to={"/"}>Home</Link>
+          </li>
           <li>Market</li>
           <li>ChooseUs</li>
           <li>Join</li>

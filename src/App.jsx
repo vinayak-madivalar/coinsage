@@ -1,18 +1,17 @@
-import ChooseUs from "./components/ChooseUs";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import Join from "./components/Join";
-import MarketDetails from "./components/MarketDetails";
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import { Route, Routes } from "react-router-dom";
+import CoinDetails from "./pages/CoinDetails";
 
 const App = () => {
   return (
-    <div className="">
-      <Home />
-      <MarketDetails />
-      <ChooseUs />
-      <Join />
-      <Footer />
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/coin/:coinId" element={<CoinDetails />} />
+      </Routes>
+    </>
   );
 };
 

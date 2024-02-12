@@ -14,7 +14,7 @@ const CoinList = (props) => {
   }
 
   return (
-    <div className=" py-4 font-rubik odd:bg-orange-50 even:bg-orange-100">
+    <div className=" py-4 font-rubik border-b-2">
       <div className="grid grid-cols-4 items-center px-8">
         <p className="flex items-center gap-4 text-left text-xl font-semibold">
           <img src={image} width={50} />
