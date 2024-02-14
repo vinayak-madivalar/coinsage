@@ -1,29 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import CoinList from "./CoinList";
-import { MARKET_DETAILS_API } from "../utilities/constants";
 import { Link } from "react-router-dom";
+import { ApiDataContext } from "../utilities/ApiDataContext";
 
 const MarketDetails = () => {
-  const [currencyData, setCurrencyData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [coinPerPage, setCoinPerPage] = useState(10);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    try {
-      fetchData();
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(MARKET_DETAILS_API);
-    const json = await data.json();
-    console.log(json);
-    setCurrencyData(json);
-    setLoading(false);
-  };
+  const currencyData = useContext(ApiDataContext);
 
   const indexOfLastCoin = currentPage * coinPerPage;
   const indexOfFirstCoin = indexOfLastCoin - coinPerPage;
@@ -61,7 +45,7 @@ const MarketDetails = () => {
           Market Cap
         </p>
       </div>
-      <div className={`${loading === true ? "animate-spin" : ""}`}>
+      <div>
         {currentCoins.map((coin) => (
           <Link to={"/coin/" + coin.id} key={coin.id}>
             <CoinList coinData={coin} />

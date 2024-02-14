@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
+import { COIN_DETAILS } from "../utilities/constants";
 
 const CoinDetails = () => {
   const [coinData, setCoinData] = useState({});
@@ -11,9 +12,7 @@ const CoinDetails = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch(
-      "https://api.coingecko.com/api/v3/coins/" + coinId
-    );
+    const response = await fetch(COIN_DETAILS + coinId);
     const json = await response.json();
     console.log(json);
     setCoinData(json);
