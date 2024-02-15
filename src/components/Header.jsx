@@ -10,7 +10,7 @@ const Header = () => {
         <img src={logo} width={180} />
       </div>
       <div className="">
-        <ul className="flex gap-12 text-xl font-semibold ">
+        <ul className="flex gap-12 text-xl font-semibold">
           <li>
             <Link to={"/"}>Home</Link>
           </li>
@@ -18,8 +18,12 @@ const Header = () => {
             {" "}
             <Link to={"/market"}>Market</Link>
           </li>
-          <li>ChooseUs</li>
-          <li>Join</li>
+          <li>
+            <a href="#chooseus">ChooseUs</a>
+          </li>
+          <li>
+            <a href="#join">Join</a>
+          </li>
         </ul>
       </div>
       <div className="flex gap-8">

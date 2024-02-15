@@ -18,7 +18,7 @@ const Market = () => {
       </div>
       <table className="border-collapse table-auto w-full">
         <thead className="font-poppins text-xl">
-          <tr className="bg-blue-100">
+          <tr className="bg-blue-100 uppercase">
             <th className="border-2 border-b-4 px-4 py-2">#</th>
             <th className="border-2 border-b-4 border-r-4 px-4 py-2">Name</th>
             <th className="border-2 border-b-4 px-4 py-2">Price</th>
@@ -26,7 +26,9 @@ const Market = () => {
             <th className="border-2 border-b-4 px-4 py-2">Changes 7D</th>
             <th className="border-2 border-b-4 px-4 py-2">Changes 30D</th>
             <th className="border-2 border-b-4 px-4 py-2">Market Cap</th>
-            <th className="border-2 border-b-4 px-4 py-2">Available Supply</th>
+            <th className="border-2 border-b-4 px-4 py-2">
+              Circulating Supply
+            </th>
           </tr>
         </thead>
         <tbody className="font-rubik text-lg font-medium">

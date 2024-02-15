@@ -7,7 +7,7 @@ import market from "../assets/market.png";
 
 const ChooseUs = () => {
   return (
-    <div className="mt-24">
+    <div id="chooseus" className="mt-24">
       <h1 className="text-center text-5xl font-bold py-8 font-poppins bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text">
         Why Choose Us
       </h1>

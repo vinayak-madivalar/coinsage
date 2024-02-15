@@ -7,7 +7,7 @@ const Join = () => {
   };
 
   return (
-    <div className="flex items-center justify-evenly">
+    <div id="join" className="flex items-center justify-evenly">
       <div>
         <img src={bitcoin} className="w-40 animate-bounce" />
       </div>

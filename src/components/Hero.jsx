@@ -61,7 +61,7 @@ const Hero = () => {
         >
           {currencyData.map((item) => (
             <Link key={item?.id} to={"/coin/" + item?.id}>
-              <div className="flex flex-col gap-2 items-center p-8 bg-orange-100 rounded-xl shadow-xl hover:scale-110">
+              <div className="flex flex-col gap-2 items-center p-8 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105">
                 <img src={item?.image} alt={item?.name} className="w-24" />
                 <p className="text-xl font-semibold font-poppins">
                   {item?.name}
