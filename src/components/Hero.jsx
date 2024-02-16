@@ -29,7 +29,7 @@ const Hero = () => {
     <div>
       <div className="pb-20 ">
         <div className="flex flex-row items-center justify-center">
-          <div className="pl-20 max-w-3xl">
+          <div className="pl-8 lg:pl-20 max-w-3xl">
             <h1 className="text-6xl/normal  font-semibold font-poppins">
               Track & Trade
               <span className="bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text">

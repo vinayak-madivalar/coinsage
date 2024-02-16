@@ -2,6 +2,7 @@ import logo from "../assets/logo.png";
 import { BsDiscord } from "react-icons/bs";
 import { FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import HamBurgerMenu from "./HamBurgerMenu";
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
         <img src={logo} width={180} />
       </div>
       <div className="">
-        <ul className="flex gap-12 text-xl font-semibold">
+        <ul className="hidden lg:flex lg:gap-12 lg:text-xl lg:font-semibold">
           <li>
             <Link to={"/"}>Home</Link>
           </li>
@@ -26,9 +27,12 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="flex gap-8">
+      <div className="hidden lg:flex lg:gap-8">
         <BsDiscord color={""} size={25} />
         <FaTwitter color={""} size={25} />
+      </div>
+      <div className="lg:hidden">
+        <HamBurgerMenu />
       </div>
     </div>
   );

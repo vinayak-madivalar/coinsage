@@ -30,27 +30,67 @@ const MarketDetails = () => {
     });
   };
 
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g, ",");
+  }
+
   return (
     <div>
       <h1 className="py-2 font-semibold text-5xl my-12 font-poppins text-center bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text">
         Market Updates
       </h1>
-      <div className="grid grid-cols-4  justify-evenly  py-3 px-8 bg-orange-300 font-rubik">
-        <p className="text-2xl font-semibold font-poppins">Coin</p>
-        <p className="text-2xl text-center font-semibold font-poppins">Price</p>
-        <p className="text-2xl text-center font-semibold font-poppins">
-          24hr Change
-        </p>
-        <p className="text-2xl text-center font-semibold font-poppins">
-          Market Cap
-        </p>
-      </div>
       <div className="overflow-auto">
-        {currentCoins.map((coin) => (
-          <Link to={"/coin/" + coin.id} key={coin.id}>
-            <CoinList coinData={coin} />
-          </Link>
-        ))}
+        <table className="border-collapse table-fixed w-full ">
+          <thead className="bg-orange-300 font-poppins">
+            <tr>
+              <th className="text-2xl text-left font-semibold font-poppins px-8 py-4">
+                Coin
+              </th>
+              <th className="text-2xl text-center font-semibold font-poppins px-4 py-4">
+                Price
+              </th>
+              <th className="text-2xl text-center font-semibold font-poppins px-4 py-4">
+                24hr Change
+              </th>
+              <th className="text-2xl text-center font-semibold font-poppins px-4 py-4">
+                Market Cap
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentCoins.map((coin) => (
+              <tr key={coin.id} className="odd:bg-orange-50 even:bg-orange-100">
+                <td className="text-left text-xl font-bold px-8 py-4">
+                  <Link to={"/coin/" + coin.id}>
+                    <div className="flex items-center justify-start gap-4">
+                      <img src={coin?.image} width={50} />
+                      {coin?.name}
+                    </div>
+                  </Link>
+                </td>
+                <td className="text-center text-xl font-semibold ">
+                  ₹ {numberWithCommas(coin?.current_price)}
+                </td>
+                <td
+                  className={`text-center text-xl font-semibold ${
+                    coin?.price_change_percentage_24h >= 0
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }`}
+                >
+                  {coin?.price_change_percentage_24h.toFixed(2)} %
+                </td>
+                <td className="text-center text-xl font-semibold">
+                  ₹{" "}
+                  {numberWithCommas(
+                    (coin?.market_cap / 1000000000000).toFixed(2)
+                  )}{" "}
+                  Trillion
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
       <div className="flex gap-4 justify-center my-12">
         {paginationNumber.map((data) => (
