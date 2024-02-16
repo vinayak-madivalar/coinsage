@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import CoinList from "./CoinList";
 import { Link } from "react-router-dom";
 import { ApiDataContext } from "../utilities/ApiDataContext";
 
