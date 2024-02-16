@@ -39,7 +39,7 @@ const MarketDetails = () => {
         Market Updates
       </h1>
       <div className="overflow-auto">
-        <table className="border-collapse table-fixed w-full ">
+        <table className="border-collapse table-auto lg:table-fixed w-full ">
           <thead className="bg-orange-300 font-poppins">
             <tr>
               <th className="text-2xl text-left font-semibold font-poppins px-8 py-4">
