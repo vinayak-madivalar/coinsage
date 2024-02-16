@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [currencyData, setCurrencyData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     try {
@@ -20,7 +19,6 @@ const Hero = () => {
     const json = await data.json();
     console.log(json);
     setCurrencyData(json);
-    setLoading(false);
   };
 
   function numberWithCommas(x) {
@@ -31,7 +29,7 @@ const Hero = () => {
     <div>
       <div className="pb-20 ">
         <div className="flex flex-row items-center justify-center">
-          <div className="pl-20">
+          <div className="pl-20 max-w-3xl">
             <h1 className="text-6xl/normal  font-semibold font-poppins">
               Track & Trade
               <span className="bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text">
@@ -47,18 +45,14 @@ const Hero = () => {
               Get Started
             </button>
           </div>
-          <img src={crypto} className="w-2/5 mr-20" />
+          <img src={crypto} className="hidden lg:block lg:w-2/5 lg:mr-20" />
         </div>
         <div className="mt-32 mb-16 text-5xl text-center font-poppins font-bold">
           <span className="bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text">
             Top 5 Crypto Currencies
           </span>
         </div>
-        <div
-          className={`flex flex-wrap justify-evenly ${
-            loading === true ? "animate-spin" : ""
-          }`}
-        >
+        <div className="flex flex-wrap justify-evenly gap-8">
           {currencyData.map((item) => (
             <Link key={item?.id} to={"/coin/" + item?.id}>
               <div className="flex flex-col gap-2 items-center p-8 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105">

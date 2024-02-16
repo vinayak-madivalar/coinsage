@@ -45,7 +45,7 @@ const MarketDetails = () => {
           Market Cap
         </p>
       </div>
-      <div>
+      <div className="overflow-auto">
         {currentCoins.map((coin) => (
           <Link to={"/coin/" + coin.id} key={coin.id}>
             <CoinList coinData={coin} />

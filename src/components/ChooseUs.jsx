@@ -11,7 +11,7 @@ const ChooseUs = () => {
       <h1 className="text-center text-5xl font-bold py-8 font-poppins bg-gradient-to-r from-red-500 to-purple-500 text-transparent bg-clip-text">
         Why Choose Us
       </h1>
-      <div className="grid grid-cols-3 justify-items-center ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center ">
         <div className="flex flex-col items-center text-center bg-slate-100 w-80 p-8 my-8 rounded-3xl ">
           <img src={wallet} width={80} className="max-w-full" />
           <h1 className="text-xl font-bold pt-4 pb-1 font-poppins">

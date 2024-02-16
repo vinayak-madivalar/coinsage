@@ -9,7 +9,10 @@ const Join = () => {
   return (
     <div id="join" className="flex items-center justify-evenly">
       <div>
-        <img src={bitcoin} className="w-40 animate-bounce" />
+        <img
+          src={bitcoin}
+          className="hidden lg:block lg:w-40 lg:animate-bounce"
+        />
       </div>
       <div className="flex flex-col items-center mt-24">
         <h1 className="text-8xl/tight  font-bold my-8 font-poppins text-center">
@@ -18,7 +21,7 @@ const Join = () => {
             DISCORD
           </span>
         </h1>
-        <p className="text-2xl mb-16 font-rubik">
+        <p className="text-2xl mb-16 font-rubik text-center lg:text-justify">
           Invest and manage all your crypto at one place.
         </p>
         <button
@@ -29,7 +32,7 @@ const Join = () => {
         </button>
       </div>
       <div>
-        <img src={eth} className="animate-bounce w-52" />
+        <img src={eth} className="hidden lg:block lg:animate-bounce lg:w-52" />
       </div>
     </div>
   );

@@ -26,14 +26,14 @@ const CoinDetails = () => {
 
   return (
     <div>
-      <div className="flex items-center ">
-        <div className="w-4/12 px-8 flex flex-col items-center justify-center">
+      <div className="flex flex-col gap-8 lg:gap-0 lg:flex-row items-center ">
+        <div className="lg:w-4/12 px-8 flex flex-col items-center justify-center">
           <img src={image?.large} width={250} />
           <p className="pt-4 text-2xl text-center font-rubik font-medium">
             Rank: #{market_cap_rank}
           </p>
         </div>
-        <div className="w-8/12 px-8 ">
+        <div className="lg:w-8/12 px-8 ">
           <p className="text-2xl font-poppins font-semibold">Description</p>
           <div className=" pt-8">
             <p
@@ -49,7 +49,7 @@ const CoinDetails = () => {
         <h1 className="text-center mb-6 font-poppins font-semibold text-2xl">
           Resources
         </h1>
-        <div className="flex justify-evenly mx-20 gap-1 font-rubik text-lg text-blue-500">
+        <div className="flex flex-col gap-4 lg:flex-row lg:gap-1 justify-evenly mx-20 font-rubik text-lg text-blue-500">
           <a
             href={coinData?.links?.homepage[0]}
             className="flex items-center gap-2"
